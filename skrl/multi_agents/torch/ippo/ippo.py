@@ -387,7 +387,7 @@ class IPPO(MultiAgent):
         )
 
         memory.set_tensor_by_name("values", self._value_preprocessor[uid](values, train=True))
-        memory.set_tensor_by_name("returns", self._value_preprocessor[uid](returns, train=True))
+        memory.set_tensor_by_name("returns", self._value_preprocessor[uid](returns, train=False))  #This used to be True #CHANGE
         memory.set_tensor_by_name("advantages", advantages)
 
         # sample mini-batches from memory
